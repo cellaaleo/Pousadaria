@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_27_141603) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_29_184113) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -66,6 +66,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_27_141603) do
     t.index ["document"], name: "index_inn_owners_on_document", unique: true
     t.index ["email"], name: "index_inn_owners_on_email", unique: true
     t.index ["reset_password_token"], name: "index_inn_owners_on_reset_password_token", unique: true
+  end
+
+  create_table "inn_reservations", force: :cascade do |t|
+    t.string "name"
+    t.date "starting_date"
+    t.date "ending_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "inn_rooms", force: :cascade do |t|

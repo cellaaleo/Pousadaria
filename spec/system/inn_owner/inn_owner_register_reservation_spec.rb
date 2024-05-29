@@ -11,9 +11,9 @@ describe "Dono de Pousada registra uma reserva" do
     visit root_path
     click_on 'Gestão de Pousadas'
     click_on 'Cadastrar Reserva'
-    fill_in "name",	with: "Turma Treina Dev 12" 
-    fill_in "starting_date", with: 2.weeks.from_now
-    fill_in "ending_date", with: 3.weeks.from_now
+    fill_in "Nome do grupo",	with: "Turma Treina Dev 12" 
+    fill_in "Data de início", with: 2.weeks.from_now
+    fill_in "Data do fim", with: 3.weeks.from_now
     click_on 'Cadastrar'
 
     expect(page).to have_content 'Reserva cadastrada com sucesso!'

@@ -1,0 +1,2 @@
+class InnReservation < ApplicationRecord
+end
