@@ -9,15 +9,18 @@ describe "Inn Rooms API" do
                                   address_attributes: { address: 'Rua X', number: '100', city: 'Manaus', state: 'AM', postal_code: '69067-080', neighborhood: 'Centro'})
       room = inn.inn_rooms.create!(name: 'Quarto Térreo', size: 30, guest_limit: 3, daily_rate_cents: 500)
       
-      get("api/v1/inn_rooms/#{room.id}")
+      get("/api/v1/inn_rooms/#{room.id}")
 
       expect(response.status).to eq 200
       expect(response.content_type).to include 'application/json'
       json_response = JSON.parse(response.body)
-      expect(json_response[:name]).to eq 'Quarto Térreo'
-      expect(json_response[:size]).to eq 30
-      expect(json_response[:guest_limit]).to eq 3
-      expect(json_response[:daily_rate_cents]).to eq 500
+      expect(json_response["name"]).to eq 'Quarto Térreo'
+      expect(json_response["size"]).to eq 30
+      expect(json_response["guest_limit"]).to eq 3
+      expect(json_response["daily_rate_cents"]).to eq 500
+      expect(json_response.keys).not_to include "inn_id"
+      expect(json_response.keys).not_to include "created_at"
+      expect(json_response.keys).not_to include "updated_at"
     end
   end
 end
